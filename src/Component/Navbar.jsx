@@ -41,11 +41,11 @@ const Navbar = () => {
 
                     <li className="flex items-center gap-[5px] cursor-pointer">
                         <AiOutlineFire className="text-[1.1rem] text-gray-600" />
-                        Features
+                        About Us
                     </li>
                     <li className="flex items-center gap-[5px] cursor-pointer">
                         <BiSupport className="text-[1.1rem] text-gray-600" />
-                        Support
+                       Contact Us
                     </li>
 
                 </ul>

@@ -3,7 +3,7 @@ import { app } from "../product/Authentication/Firebase.config";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 
 
-const AuthContext = createContext()
+const AuthContext = createContext(null)
 const auth = getAuth(app)
 
 export const AuthProvider = ({Children}) => {

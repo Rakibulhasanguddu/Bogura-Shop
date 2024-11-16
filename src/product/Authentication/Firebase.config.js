@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-apiKey:import.meta.evn.VITE_APIKEY,
-authDomain:import.meta.evn.VITE_AUTHDOMAIN,
-projectId:import.meta.evn.VITE_PROJECTID,
-storageBucket:import.meta.evn.VITE_STORAGEBUCKET,
-messagingSenderId:import.meta.evn.VITE_MESSAGEINGSENDERID,
-appId:import.meta.evn.VITE_APPID
+apiKey:import.meta.env.VITE_APIKEY,
+authDomain:import.meta.env.VITE_AUTHDOMAIN,
+projectId:import.meta.env.VITE_PROJECTID,
+storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+messagingSenderId:import.meta.env.VITE_MESSAGEINGSENDERID,
+appId:import.meta.env.VITE_APPID
 // apiKey: "AIzaSyDqCaDsDt-ePJlEXa8OsddzJcPGwm0mA9I",
 // authDomain: "bogura--shop.firebaseapp.com",
 // projectId: "bogura--shop",
