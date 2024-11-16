@@ -3,7 +3,7 @@ import { app } from "../product/Authentication/Firebase.config";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 
 
-const AuthContext = createContext(null)
+export const AuthContext = createContext(null)
 const auth = getAuth(app)
 
 export const AuthProvider = ({Children}) => {
@@ -28,17 +28,17 @@ export const AuthProvider = ({Children}) => {
 
     }
 
-    // useEffect(() => {
-    //     const unSubscribe = onAuthStateChanged(auth, creatuser => {
-    //         console.log('user in the auth state changed', creatuser);
-    //         setUser(creatuser);
-    //         setLoading(false);
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, creatuser => {
+            console.log('user in the auth state changed', creatuser);
+            setUser(creatuser);
+            setLoading(false);
                 
-    //     });
-    //     return () => {
-    //        return unSubscribe();
-    //     }
-    //   }, [])
+        });
+        return () => {
+           return unSubscribe();
+        }
+      }, [])
 const authinfo={
     user,
     Loading,
