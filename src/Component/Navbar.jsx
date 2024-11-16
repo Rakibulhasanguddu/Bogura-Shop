@@ -21,7 +21,7 @@ const Navbar = () => {
     const [productMobileMegaMenu, setProductMobileMegaMenu] = useState(false)
     const [megaMenuSubItem, setMegaMenuSubItem] = useState("")
     return (
-        <div>
+        <div className="mt-9">
                <nav
             className="flex items-center justify-between w-full relative">
             <img src="https://i.ibb.co/0BZfPq6/darklogo.png" alt="logo" className="w-[55px] "/>
