@@ -7,10 +7,12 @@ import Home from "../Pages/Home";
 import Regestration from "../Component/Regestration";
 import Login from "../Component/Login";
 import About from "../Pages/About";
+import Error from "../Component/Error";
   export const router = createBrowserRouter([
     {
       path: "/",
       element:<Root></Root>,
+      errorElement:<Error></Error>,
       children:[
         {
             path:'/',
