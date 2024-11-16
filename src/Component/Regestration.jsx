@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
+import Useauth from "../Authprovider/Useauth";
 
 
 const Regestration = () => {
-	
+	const {creatuser}= Useauth()
 	const {
 		register,
 		handleSubmit,
@@ -35,6 +36,20 @@ const Regestration = () => {
 				<input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" {...register("password", { required: true })} />
 				{errors.password&& <span>Password is required</span>}
 			</div>
+			<div className="form-control">
+          <label className="label">
+            <span className="label-text">confirm Password</span>
+          </label>
+          <input type="password" placeholder="password" className="input input-bordered" {...register("confirm", { required: true,
+            validate:(value)=>{
+              if(watch('password') !=value){
+                return "your password not match"
+              }
+            }
+           })} />
+          {errors.confirm && <span>both password match</span>}
+         
+        </div>
 			
 		</div>
 		<div className="space-y-2">

@@ -1,6 +1,7 @@
 import {  createContext,  useEffect,  useState } from "react";
 import { app } from "../product/Authentication/Firebase.config";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import axios from "axios";
 
 
 export const AuthContext = createContext(null)
@@ -29,16 +30,29 @@ export const AuthProvider = ({Children}) => {
     }
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, creatuser => {
-            console.log('user in the auth state changed', creatuser);
-            setUser(creatuser);
-            setLoading(false);
-                
-        });
-        return () => {
-           return unSubscribe();
-        }
-      }, [])
+      const unSubscribe = onAuthStateChanged(auth, currentuser => {
+          console.log('user in the auth state changed', currentuser);
+          setUser(currentuser);
+          // setLoading(false);
+          if(creatuser){
+            axios.post(`http://localhost:4000/authentication`,{
+              email:currentuser.email,
+            }).then(data=>{
+              if(data.data){
+                localStorage.setItem("access-token",data?.data?.token);
+                setLoading(false)
+              }
+            })
+          }
+          else{
+            localStorage.removeItem("access-token");
+            setLoading(false)
+          }
+      });
+      return () => {
+          unSubscribe();
+      }
+    }, [])
 const authinfo={
     user,
     Loading,
