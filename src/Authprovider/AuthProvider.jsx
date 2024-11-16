@@ -28,17 +28,17 @@ export const AuthProvider = ({Children}) => {
 
     }
 
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, creatuser => {
-            console.log('user in the auth state changed', creatuser);
-            setUser(creatuser);
-            setLoading(false);
+    // useEffect(() => {
+    //     const unSubscribe = onAuthStateChanged(auth, creatuser => {
+    //         console.log('user in the auth state changed', creatuser);
+    //         setUser(creatuser);
+    //         setLoading(false);
                 
-        });
-        return () => {
-           return unSubscribe();
-        }
-      }, [])
+    //     });
+    //     return () => {
+    //        return unSubscribe();
+    //     }
+    //   }, [])
 const authinfo={
     user,
     Loading,
